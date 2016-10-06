@@ -14,6 +14,8 @@ import android.widget.TextView;
 import cl.telematica.android.certamen2.HttpServerConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
+import  org.json.JSONArray;
+
 
 import cl.telematica.android.certamen2.R;
 import cl.telematica.android.certamen2.UIAdapter;
@@ -63,7 +65,7 @@ public class ListFragment extends Fragment {
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 
             @Override
-            protected void onPreExecute(){
+            protected void onPreExecute() {
 
             }
 
@@ -75,14 +77,14 @@ public class ListFragment extends Fragment {
 
             @Override
             protected void onPostExecute(String result) {
-                if(result != null){
+                if (result != null) {
                     try {
 
                         JSONObject objeto = new JSONObject(result);
                         final String joke = objeto.getJSONObject("value").getString("joke");
-                        final String ID = objeto.getJSONObject("value").getInt("id");
+                        final int ID = objeto.getJSONObject("value").getInt("id");
                         text2.setText(joke);
-                        text3.setText(id);
+                        //text3.setText(id);
 
 
                     } catch (JSONException e) {
@@ -93,15 +95,8 @@ public class ListFragment extends Fragment {
                 }
             }
         };
-
-
         task.execute();
-    }
-
-
-
-
 
     return mainView;
     }
-}
+

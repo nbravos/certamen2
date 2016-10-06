@@ -9,10 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.json.JSONObject;
+
 import java.util.List;
 
 public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> {
-    //private List<Libro> mDataset;
+    private json_jokes value;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextID;
@@ -41,12 +44,12 @@ public class UIAdapter extends RecyclerView.Adapter<UIAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
        // Libro libro = mDataset.get(position);
 
-        holder.mTextID.setText(RecyclerView.Adapter.);
-        holder.mGeneroView.setText(libro.getGenero());
+        holder.mTextID.setText("ID: "+value.getId("id"));
+        holder.mTextJoke.setText(" "+value.getJoke("joke"));
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        //return mDataset.size();
     }
 }
