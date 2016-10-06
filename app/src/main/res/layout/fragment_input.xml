@@ -17,8 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:inputType="text"
-        android:text="@string/name"/>
+        android:inputType="text" />
+        <!--android:text="@string/name"-->
 
     <EditText
         android:layout_width="match_parent"
@@ -28,8 +28,8 @@
         android:layout_below="@+id/name_input"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:inputType="text"
-        android:text="@string/lastname"/>
+        android:inputType="text" />
+        <!--android:text="@string/lastname"-->
 
     <Button
         android:layout_width="80dp"
@@ -48,7 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/Joke_text"
-        android:text="@string/show_text"
         android:gravity="center"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/button1"

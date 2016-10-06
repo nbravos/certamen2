@@ -23,6 +23,9 @@ public class InputFragment extends Fragment {
     EditText eText2;
     Button button_1;
     TextView tText;
+    String str1;
+    String resultado;
+
 
     /**
      * New instance of InputFragment
@@ -57,13 +60,15 @@ public class InputFragment extends Fragment {
 
         tText = (TextView)mainView.findViewById(R.id.Joke_text);
 
-        final String str1 = eText1.getText().toString();
-        final String str2 = eText2.getText().toString();
+
 
 
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                str1 = "firstName="+eText1.getText().toString()+"&lastName="+eText2.getText().toString();
+
                 AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 
                     @Override
@@ -71,18 +76,25 @@ public class InputFragment extends Fragment {
 
                     }
 
+
+
+
+
                     @Override
                     protected String doInBackground(Void... params) {
-                        String resultado = new HttpServerConnection().connectToServer("http://api.icndb.com/jokes/random?firstName="+str1+"&lastName="+str2+"", 15000);
+                        resultado = new HttpServerConnection().connectToServer("http://api.icndb.com/jokes/random?"+str1, 15000);
+                        System.out.println(resultado);
+                        System.out.println(str1);
                         return resultado;
                     }
+
 
                     @Override
                     protected void onPostExecute(String result) {
                         if(result != null){
                             try {
                                 JSONObject objeto = new JSONObject(result);
-                                String joke = objeto.getString("joke");
+                                final String joke = objeto.getJSONObject("value").getString("joke");
                                 tText.setText(joke);
 
 
@@ -99,10 +111,6 @@ public class InputFragment extends Fragment {
             }
         });
 
-
-
-
         return mainView;
     }
-
 }
