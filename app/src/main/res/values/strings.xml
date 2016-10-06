@@ -3,6 +3,10 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="button_name">Listo</string>
+    <string name="show_text">TEXTO PARSEADO</string>
+    <string name="name">Nombre</string>
+    <string name="lastname">Apellido</string>
 
     <string name="action_settings">Settings</string>
 </resources>
